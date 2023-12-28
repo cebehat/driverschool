@@ -414,7 +414,7 @@ local function NearPed(model, coords, heading, gender, animDict, animName, scena
 end
 
 CreateThread(function() -- Create Blips
-    local blip = AddBlipForCoord(vector3(210.49, -1381.94, 29.58))
+    local blip = AddBlipForCoord(vector3(250.96, -1413.1, 29.59))
     SetBlipSprite(blip, 525)
     SetBlipDisplay(blip, 4)
     SetBlipScale(blip, 0.7)

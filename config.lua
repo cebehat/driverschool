@@ -42,7 +42,7 @@ Config.VehicleModels = {
 Config.SpeedLimits = {
 	residence = 50,
 	town      = 80,
-	freeway   = 120
+	freeway   = 130
 }
 
 Config.Zones = {
@@ -211,13 +211,6 @@ Config.CheckPoints = {
 }
 
 Config.PedList = {
-	-- {
-	-- 	model = 'ig_paper',
-	-- 	coords = vector3(234.08, -1387.25, 30.68),               
-	-- 	heading = 138.1,
-	-- 	gender = 'male',
-    --     scenario = 'WORLD_HUMAN_CLIPBOARD'
-	-- },
 	{
 		model = 'ig_paper',
 		coords = vector3(250.96, -1413.1, 29.59),              
