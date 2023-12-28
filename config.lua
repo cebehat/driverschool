@@ -211,13 +211,13 @@ Config.CheckPoints = {
 }
 
 Config.PedList = {
-	{
-		model = 'ig_paper',
-		coords = vector3(210.49, -1381.94, 29.58),               
-		heading = 140.35,
-		gender = 'male',
-        scenario = 'WORLD_HUMAN_CLIPBOARD'
-	},
+	-- {
+	-- 	model = 'ig_paper',
+	-- 	coords = vector3(234.08, -1387.25, 30.68),               
+	-- 	heading = 138.1,
+	-- 	gender = 'male',
+    --     scenario = 'WORLD_HUMAN_CLIPBOARD'
+	-- },
 	{
 		model = 'ig_paper',
 		coords = vector3(250.96, -1413.1, 29.59),              
