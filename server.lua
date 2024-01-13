@@ -4,7 +4,7 @@ RegisterNetEvent('driverschool:server:payTest', function(price, type)
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
 	local bankBalance = Player.PlayerData.money['bank']
-	local cashBalance = Player.PlayerData.money['cash']	
+	local cashBalance = Player.PlayerData.money['cash']
 	if bankBalance >= price then
 		Player.Functions.RemoveMoney('bank', price, 'Pay the driving school test fee')
 		TriggerClientEvent('driverschool:client:startTest', src, type)
@@ -25,7 +25,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 	info.birthdate = Player.PlayerData.charinfo.birthdate
 	info.type = type
 	if type ~= 'N' then
-		Player.Functions.AddItem('driver_license', 1, nil, info)
+		--Player.Functions.AddItem('driver_license', 1, nil, info)
 	end
     local licenses = {
 		['N'] = Player.PlayerData.metadata['licences'].N,
@@ -155,6 +155,6 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 	end
     Player.Functions.SetMetaData('licences', licenses)
 	if type ~= 'N' then
-		TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['driver_license'], 'add')
+		--TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['driver_license'], 'add')
 	end
 end)

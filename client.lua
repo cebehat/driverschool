@@ -135,12 +135,12 @@ local function StopTheoryTest(success)
 end
 
 local function StartDriveTest(type)
-	QBCore.Functions.Notify(Lang:t('info.get_in_the_vehicle_at_the_starting_line_and_start_the_test'), 'info', 4000)
+	QBCore.Functions.Notify(Lang:t('info.get_in_the_vehicle_at_the_starting_line_and_start_the_test'), 'primary', 4000)
 	QBCore.Functions.SpawnVehicle(Config.VehicleModels[type], function(vehicle)
 		SetVehicleNumberPlateText(vehicle, 'TL' .. string.format('%06d', math.random(1, 999999)))
 		SetEntityHeading(vehicle, Config.Zones.VehicleSpawnPoint.Pos.w)
 		exports['LegacyFuel']:SetFuel(vehicle, 100.0)
-		TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(vehicle))		
+		TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(vehicle))
 		SetVehicleCustomPrimaryColour(vehicle, 0, 0, 0)
         SetVehicleDirtLevel(vehicle)
         SetVehicleUndriveable(vehicle, false)
@@ -192,11 +192,11 @@ local function EnumerateEntitiesWithinDistance(entities, isPlayerEntities, coord
 end
 
 local function GetVehiclesInArea(coords, maxDistance)
-	return EnumerateEntitiesWithinDistance(QBCore.Functions.GetVehicles(), false, coords, maxDistance) 
+	return EnumerateEntitiesWithinDistance(QBCore.Functions.GetVehicles(), false, coords, maxDistance)
 end
 
 local function IsSpawnPointClear(coords, maxDistance)
-	return #GetVehiclesInArea(coords, maxDistance) == 0 
+	return #GetVehiclesInArea(coords, maxDistance) == 0
 end
 
 RegisterNUICallback('question', function(data, cb)
@@ -242,7 +242,7 @@ RegisterNetEvent('driverschool:client:payTest', function(data)
 				TriggerServerEvent('driverschool:server:payTest', Config.Prices[data.type], data.type)
 			else
 				QBCore.Functions.Notify(Lang:t('info.someone_is_at_the_starting_line_please_wait_a_moment'), 'error', 2000)
-			end			
+			end
 		else
 			QBCore.Functions.Notify(Lang:t('info.you_have_not_passed_the_theory_test'), 'error', 2000)
 		end
@@ -312,7 +312,7 @@ CreateThread(function() -- Drive test
 					end
 				end
 			end
-		else			
+		else
 			Wait(1000)-- not currently taking driver test
 		end
 	end
@@ -343,7 +343,7 @@ CreateThread(function() -- Speed / Damage control
 							if not IsAboveSpeedLimit then
 								DriveErrors = DriveErrors + 5
 								IsAboveSpeedLimit = true
-								QBCore.Functions.Notify(Lang:t('warning.you_drive_too_fast'), 'warning', 2000)
+								QBCore.Functions.Notify(Lang:t('warning.you_drive_too_fast'), 'error', 2000)
 								QBCore.Functions.Notify(Lang:t('error.you_have_been_deducted_5_points'), 'error', 2000)
 								QBCore.Functions.Notify(Lang:t('error.total_score_has_been_deducted_x', {score = DriveErrors}), 'error', 2000)
 							end
@@ -355,7 +355,7 @@ CreateThread(function() -- Speed / Damage control
 					local health = GetEntityHealth(vehicle)
 					if health < LastVehicleHealth then
 						DriveErrors = DriveErrors + 5
-						QBCore.Functions.Notify(Lang:t('warning.you_damaged_the_vehicle'), 'warning', 2000)
+						QBCore.Functions.Notify(Lang:t('warning.you_damaged_the_vehicle'), 'error', 2000)
 						QBCore.Functions.Notify(Lang:t('error.you_have_been_deducted_5_points'), 'error', 2000)
 						QBCore.Functions.Notify(Lang:t('error.total_score_has_been_deducted_x', {score = DriveErrors}), 'error', 2000)
 						LastVehicleHealth = health
@@ -365,7 +365,7 @@ CreateThread(function() -- Speed / Damage control
 						if not exports['qb-hud']:checkseatbelt() and CurrentCheckPoint > 1 and not seatbelterr[CurrentCheckPoint] then
 							seatbelterr[CurrentCheckPoint] = true
 							DriveErrors = DriveErrors + 5
-							QBCore.Functions.Notify(Lang:t('warning.youre_not_wearing_a_seat_belt'), 'warning', 2000)
+							QBCore.Functions.Notify(Lang:t('warning.youre_not_wearing_a_seat_belt'), 'error', 2000)
 							QBCore.Functions.Notify(Lang:t('error.you_have_been_deducted_5_points'), 'error', 2000)
 							QBCore.Functions.Notify(Lang:t('error.total_score_has_been_deducted_x', {score = DriveErrors}), 'error', 2000)
 							Wait(1500)
@@ -386,11 +386,11 @@ local function NearPed(model, coords, heading, gender, animDict, animName, scena
 	end
 	if gender == 'male' then
 		genderNum = 4
-	elseif gender == 'female' then 
+	elseif gender == 'female' then
 		genderNum = 5
 	else
-	
-	end	
+
+	end
 	ped = CreatePed(genderNum, GetHashKey(v.model), coords, heading, false, true)
 	SetEntityAlpha(ped, 0, false)
 	FreezeEntityPosition(ped, true)
@@ -404,7 +404,7 @@ local function NearPed(model, coords, heading, gender, animDict, animName, scena
 		TaskPlayAnim(ped, animDict, animName, 8.0, 0, -1, 1, 0, 0, 0)
 	end
 	if scenario then
-		TaskStartScenarioInPlace(ped, scenario, 0, true) 
+		TaskStartScenarioInPlace(ped, scenario, 0, true)
 	end
 	for i = 0, 255, 51 do
 		Wait(50)

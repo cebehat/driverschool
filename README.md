@@ -4,7 +4,7 @@
 
 ## Dependencies:
 - [qb-core](https://github.com/qbcore-framework/qb-core) -Main framework
-- [qb-target](https://github.com/BerkieBb/qb-target) 
+- [qb-target](https://github.com/BerkieBb/qb-target)
 
 ## Preview:
 [Preview - Youtube](https://youtu.be/du1YJ7e7D8o)
