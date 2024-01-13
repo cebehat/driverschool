@@ -36,7 +36,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 		['E'] = Player.PlayerData.metadata['licences'].E,
 		['F'] = Player.PlayerData.metadata['licences'].F,
 		['G'] = Player.PlayerData.metadata['licences'].G,
-		['driver'] = Player.PlayerData.metadata['licences'].driver,
+		['driver'] = Player.PlayerData.metadata['licences'].driver | false,
         ['business'] = Player.PlayerData.metadata['licences'].business,
         ['weapon'] = Player.PlayerData.metadata['licences'].weapon
 	}
@@ -64,7 +64,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 			['E'] = Player.PlayerData.metadata['licences'].E,
 			['F'] = Player.PlayerData.metadata['licences'].F,
 			['G'] = Player.PlayerData.metadata['licences'].G,
-			['driver'] = Player.PlayerData.metadata['licences'].driver,
+			['driver'] = true,
 			['business'] = Player.PlayerData.metadata['licences'].business,
 			['weapon'] = Player.PlayerData.metadata['licences'].weapon
 		}
@@ -78,7 +78,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 			['E'] = Player.PlayerData.metadata['licences'].E,
 			['F'] = Player.PlayerData.metadata['licences'].F,
 			['G'] = Player.PlayerData.metadata['licences'].G,
-			['driver'] = Player.PlayerData.metadata['licences'].driver,
+			['driver'] = true,
 			['business'] = Player.PlayerData.metadata['licences'].business,
 			['weapon'] = Player.PlayerData.metadata['licences'].weapon
 		}
@@ -92,7 +92,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 			['E'] = Player.PlayerData.metadata['licences'].E,
 			['F'] = Player.PlayerData.metadata['licences'].F,
 			['G'] = Player.PlayerData.metadata['licences'].G,
-			['driver'] = Player.PlayerData.metadata['licences'].driver,
+			['driver'] = true,
 			['business'] = Player.PlayerData.metadata['licences'].business,
 			['weapon'] = Player.PlayerData.metadata['licences'].weapon
 		}
@@ -106,7 +106,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 			['E'] = Player.PlayerData.metadata['licences'].E,
 			['F'] = Player.PlayerData.metadata['licences'].F,
 			['G'] = Player.PlayerData.metadata['licences'].G,
-			['driver'] = Player.PlayerData.metadata['licences'].driver,
+			['driver'] = true,
 			['business'] = Player.PlayerData.metadata['licences'].business,
 			['weapon'] = Player.PlayerData.metadata['licences'].weapon
 		}
@@ -120,7 +120,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 			['E'] = true,
 			['F'] = Player.PlayerData.metadata['licences'].F,
 			['G'] = Player.PlayerData.metadata['licences'].G,
-			['driver'] = Player.PlayerData.metadata['licences'].driver,
+			['driver'] = true,
 			['business'] = Player.PlayerData.metadata['licences'].business,
 			['weapon'] = Player.PlayerData.metadata['licences'].weapon
 		}
@@ -134,7 +134,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 			['E'] = Player.PlayerData.metadata['licences'].E,
 			['F'] = true,
 			['G'] = Player.PlayerData.metadata['licences'].G,
-			['driver'] = Player.PlayerData.metadata['licences'].driver,
+			['driver'] = true,
 			['business'] = Player.PlayerData.metadata['licences'].business,
 			['weapon'] = Player.PlayerData.metadata['licences'].weapon
 		}
@@ -148,7 +148,7 @@ RegisterNetEvent('driverschool:server:addLicense', function(type)
 			['E'] = Player.PlayerData.metadata['licences'].E,
 			['F'] = Player.PlayerData.metadata['licences'].F,
 			['G'] = true,
-			['driver'] = Player.PlayerData.metadata['licences'].driver,
+			['driver'] = true,
 			['business'] = Player.PlayerData.metadata['licences'].business,
 			['weapon'] = Player.PlayerData.metadata['licences'].weapon
 		}
