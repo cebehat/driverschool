@@ -14,7 +14,6 @@ local seatbelterr = {}
 local wrongvehicle = false
 local notinvehicle = false
 local peds = {}
-local nextCoords = {}
 local multilang = {}
 
 local function StartTheoryTest()
