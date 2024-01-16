@@ -14,6 +14,7 @@ local seatbelterr = {}
 local wrongvehicle = false
 local notinvehicle = false
 local peds = {}
+local nextCoords = {}
 local multilang = {}
 
 local function StartTheoryTest()
@@ -137,7 +138,7 @@ end
 local function StartDriveTest(type)
 	QBCore.Functions.Notify(Lang:t('info.get_in_the_vehicle_at_the_starting_line_and_start_the_test'), 'primary', 4000)
 	QBCore.Functions.SpawnVehicle(Config.VehicleModels[type], function(vehicle)
-		SetVehicleNumberPlateText(vehicle, 'TL' .. string.format('%06d', math.random(1, 999999)))
+		SetVehicleNumberPlateText(vehicle, 'STUDENT')
 		SetEntityHeading(vehicle, Config.Zones.VehicleSpawnPoint.Pos.w)
 		exports['LegacyFuel']:SetFuel(vehicle, 100.0)
 		TriggerEvent('vehiclekeys:client:SetOwner', QBCore.Functions.GetPlate(vehicle))
@@ -255,6 +256,10 @@ RegisterNetEvent('driverschool:client:payTest', function(data)
 	end
 end)
 
+local function DrawNextPoint()
+
+end
+
 CreateThread(function() -- Drive test
 	while true do
 		Wait(0)
@@ -290,15 +295,17 @@ CreateThread(function() -- Drive test
 							if DoesBlipExist(CurrentBlip) then
 								RemoveBlip(CurrentBlip)
 							end
-							CurrentBlip = AddBlipForCoord(Config.CheckPoints[nextCheckPoint].Pos)
-							SetBlipRoute(CurrentBlip, 1)
+							Wait(100)
+							CurrentBlip = AddBlipForCoord(Config.CheckPoints[nextCheckPoint].Pos.x, Config.CheckPoints[nextCheckPoint].Pos.y, Config.CheckPoints[nextCheckPoint].Pos.z)
+							SetBlipRoute(CurrentBlip, true)
 							LastCheckPoint = CurrentCheckPoint
 						end
+
 						local distance = #(coords - Config.CheckPoints[nextCheckPoint].Pos)
 						if distance <= 100.0 then
-							DrawMarker(1, Config.CheckPoints[nextCheckPoint].Pos, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 1.5, 1.5, 1.5, 102, 204, 102, 100, false, true, 2, false, false, false, false)
+							DrawMarker(1, Config.CheckPoints[nextCheckPoint].Pos.x, Config.CheckPoints[nextCheckPoint].Pos.y, Config.CheckPoints[nextCheckPoint].Pos.z, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 5.0, 5.0, 1.5, 102, 204, 102, 200, false, true, 1, false, nil, nil, false)
 						end
-						if distance <= 3.0 then
+						if distance <= 6.0 then
 							Config.CheckPoints[nextCheckPoint].Action(playerPed, CurrentVehicle, SetCurrentZoneType)
 							CurrentCheckPoint = CurrentCheckPoint + 1
 						end

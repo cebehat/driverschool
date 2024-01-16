@@ -179,7 +179,7 @@ Config.CheckPoints = {
 		end
 	},
 	{
-		Pos = vector3(-900.647, -1986.28, 26.109),
+		Pos = vector3(-898.24, -1984.94, 26.24),
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			QBCore.Functions.Notify(Lang:t('info.go_to_the_next_point'), 'primary', 4000)
 		end
@@ -191,7 +191,7 @@ Config.CheckPoints = {
 		end
 	},
 	{
-		Pos = vector3(1225.759, -1948.792, 38.718),
+		Pos = vector3(1225.759, -1948.792, 37.19),
 		Action = function(playerPed, vehicle, setCurrentZoneType)
 			QBCore.Functions.Notify(Lang:t('info.entered_town_pay_attention_to_your_speed_speed_limit_x_kmh', {speed = Config.SpeedLimits['town'] - Config.SpeedLimitPadding}), 'primary', 4000)
 		end
